@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue HelloWorld</title>
+  <script src="../assets//js/vue.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>v-text</h1>
+  <hr>
+  <div id="app">
+    <span><div v-text="message"></div>{{message}}</span>
+    <div v-html="dodo"></div>
+  </div>
+  <script type="text/javascript">
+    var app=new Vue({
+      el:'#app',
+      data:{
+        isLogin: true,
+        message:'我是v-text',
+        dodo:'<h2>我是v-html，真的low,有安全问题，不推荐使用</h2>'
+      }
+    })
+  </script>
+</body>
+</html>

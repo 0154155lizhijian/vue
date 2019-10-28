@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>computed Option 计算选项</title>
+  <script src="../assets//js/vue.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <h1>computed Option 计算选项</h1>
+  <hr>
+  <div id="app">
+    <p>{{price}}</p>
+    <p>{{newPrice}}</p>
+    <ul>
+      <li v-for="ne in newsList">
+        {{ne.title}} -- {{ne.data}}
+      </li>
+      <li v-for="news in reverseList">
+          {{news.title}} -- {{news.data}}
+      </li>
+    </ul>
+
+  </div>
+  <script type="text/javascript">
+    var newsList = [
+      { title: '大龙', data: '8分钟' },
+      { title: '小龙', data: '3分钟' },
+      { title: '风龙', data: '20分钟' },
+      { title: '暴君', data: '5分钟' }
+    ]
+    var app = new Vue({
+      el: '#app',
+      data: {
+        price: 1000,
+        newsList: newsList
+      },
+      computed: {
+        newPrice: function () {
+          return '￥' + this.price + '元'
+        },
+        reverseList: function () {
+          return this.newsList.reverse();
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

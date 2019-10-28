@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mixins 混入选项操作</title>
+  <script src="../assets//js/vue.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <h1>Mixins 混入选项操作</h1>
+  <hr>
+  <div id="app">
+    {{num}}
+    <p><button @click="add">增加</button></p>
+  </div>
+  <script type="text/javascript">
+    var addConsole = {
+      updated:function(){
+        console.log('数据发生了变化,变成了'+this.num+',我要比原生的updated要提前执行')
+      }
+    };
+    Vue.mixin({
+      updated:function(){
+        console.log('全局混入,我最先执行');
+      }
+    });
+    var app=new Vue({
+      el:'#app',
+      data:{
+        num:12,
+      },
+      methods:{
+        add:function(){
+          this.num++;
+        }
+      },
+      mixins:[addConsole]
+    })
+  </script>
+</body>
+</html>

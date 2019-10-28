@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Extends Option 扩展选项</title>
+  <script src="../assets//js/vue.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <h1>Extends Option 扩展选项</h1>
+  <hr>
+  <div id="app">
+    {{num}}
+    <p><button @click="add">增加</button></p>
+  </div>
+  <script type="text/javascript">
+    var extendsObj = {
+      updated: function() {
+        console.log('我是拓展的updated');
+      },
+      methods: {
+        add: function() {
+          console.log('我是拓展出来的');
+        }
+      }
+    }
+    var app = new Vue({
+      el: '#app',
+      data: {
+        num: 12,
+      },
+      methods: {
+        add: function () {
+          console.log('我是亲生的')
+          this.num++;
+        }
+      },
+      updated: function () {
+        console.log('我是构造函数里面的updated')
+      },
+      extends: extendsObj
+    })
+  </script>
+</body>
+
+</html>

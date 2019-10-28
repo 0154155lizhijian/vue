@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>computed Option 计算选项</title>
+  <script src="../assets//js/vue.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <h1>computed Option 计算选项</h1>
+  <hr>
+  <div id="app">
+    <p>{{num}}</p>
+    <button @click="add(10)">添加</button>
+    <btn @click.native="add(15)"></btn>
+    <p><btn onclick="app.add(3)"></btn></p>
+  </div>
+  <script type="text/javascript">
+  var btn={
+    template:`<button> 组件add</button>`  
+  }
+    var app = new Vue({
+      el: '#app',
+      data: {
+        num: 100,
+      },
+      methods:{
+        add:function(num){
+          if(num!=''){
+            this.num +=num;
+          }else{
+            this.num++
+          }
+        }
+      },
+      components:{
+        btn:btn
+      }
+    });
+  </script>
+</body>
+
+</html>
