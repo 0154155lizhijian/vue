@@ -55,7 +55,7 @@ export default new Router({
 ```
 - 在配置二级路由的时候，
 1. path不能有/XX
-2. 在页面上要加上<router-view />才可以生效
+2. 在页面上要加上`<router-view />`才可以生效
 
 - 路由name跳转传参
 ```
@@ -92,7 +92,7 @@ export default new Router({
   name: 'Daluandou',
   component: Daluandou
 }
-
+<router-link to='/firstPage/daluandou/傲视勿念'>进入vue王者大乱斗 </router-link>
 <h2>
   亲爱的 {{$route.params.userName}}召唤师  欢迎来到王者峡谷大乱斗
 </h2>
